@@ -3,38 +3,43 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class movement : MonoBehaviour{
+public class movement : MonoBehaviour {
 
     Rigidbody rocketBody;
-    MeshRenderer rocketMesh;
+    AudioSource rocketAudio;
+    [SerializeField] AudioClip rocketBoostSound;
     [SerializeField] float boostVelocity = 1000f;
     [SerializeField] float rotationVelocity = 0.5f;
 
     // Start is called before the first frame update
     void Start() {
+        rocketAudio = GetComponent<AudioSource>();
         rocketBody = GetComponent<Rigidbody>();
-        rocketMesh = GetComponent<MeshRenderer>();
     }
 
     // Update is called once per frame
-    void Update(){
-        processBoost();    
+    void Update() {
+        processBoost();
         processRotation();
-    } 
-    
+    }
+
     void processBoost() {
 
-        if (Input.GetKey(KeyCode.Space)) {
-
+        if(Input.GetKey(KeyCode.Space)) {
+            if(!rocketAudio.isPlaying) {
+                rocketAudio.PlayOneShot(rocketBoostSound, 1); 
+            }
             rocketBody.AddRelativeForce(Vector3.up * boostVelocity * Time.deltaTime);
 
+        } else {
+            rocketAudio.Stop();
         }
     }
     void processRotation() {
 
-        if (Input.GetKey(KeyCode.A)) {
+        if(Input.GetKey(KeyCode.A)) {
             applyRotation(rotationVelocity);
-        } else if (Input.GetKey(KeyCode.D)) {
+        } else if(Input.GetKey(KeyCode.D)) {
             applyRotation(-rotationVelocity);
         }
     }
@@ -44,13 +49,6 @@ public class movement : MonoBehaviour{
         rocketBody.freezeRotation = true;
         transform.Rotate(Vector3.forward * rotateThisVelocity * Time.deltaTime);
         rocketBody.freezeRotation = false;
-    }
-
-    void OnCollisionEnter(Collision other) { 
-        if (other.gameObject.tag == "ground"){
-            rocketBody.isKinematic = true;
-            rotationVelocity = 0;
-        }
     }
 }
 
