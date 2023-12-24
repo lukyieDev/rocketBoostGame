@@ -8,19 +8,22 @@ public class collisionHandler : MonoBehaviour{
     movement movement;
     AudioSource rocketAudio;
     bool crashedOrFinished = false;
+    bool collisionStatus = false;
     [SerializeField] AudioClip crashSound;
     [SerializeField] AudioClip winSound;
+    [SerializeField] ParticleSystem crashParticles;
+    [SerializeField] ParticleSystem winParticles;
 
     void Start(){
         movement = GetComponent<movement>();
         rocketAudio = GetComponent<AudioSource>();
     }
     void Update(){
-        
+        loadDebugKeys();
     }
 
     void OnCollisionEnter(Collision other) {
-        if(crashedOrFinished) {return;}
+        if(crashedOrFinished || collisionStatus) {return;}
 
         switch(other.gameObject.tag) {
             case "friend":
@@ -36,7 +39,9 @@ public class collisionHandler : MonoBehaviour{
     }
 
     void crashSequence() {
+        movement.jetParticle.Stop();
         rocketAudio.Stop();
+        crashParticles.Play();
         rocketAudio.PlayOneShot(crashSound, 0.3f);
         crashedOrFinished = true;
         movement.enabled = false;
@@ -44,8 +49,11 @@ public class collisionHandler : MonoBehaviour{
     }
 
     void nextLevelSequence() {
+        movement.jetParticle.Stop();
         rocketAudio.Stop();
+        winParticles.Play();
         rocketAudio.PlayOneShot(winSound);
+        crashedOrFinished = true;
         movement.enabled = false;
         Invoke("loadNextLevel", 2f);
     }
@@ -66,5 +74,13 @@ public class collisionHandler : MonoBehaviour{
             SceneManager.LoadScene(0);
         }
         
+    }
+
+    void loadDebugKeys() {
+        if(Input.GetKeyUp(KeyCode.L)) {
+            loadNextLevel();
+        }else if(Input.GetKeyUp(KeyCode.C)) {
+            collisionStatus = !collisionStatus;
+        }
     }
 }

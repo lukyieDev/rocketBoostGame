@@ -10,6 +10,7 @@ public class movement : MonoBehaviour {
     [SerializeField] AudioClip rocketBoostSound;
     [SerializeField] float boostVelocity = 1000f;
     [SerializeField] float rotationVelocity = 0.5f;
+    [SerializeField] public ParticleSystem jetParticle;
 
     // Start is called before the first frame update
     void Start() {
@@ -29,10 +30,13 @@ public class movement : MonoBehaviour {
             if(!rocketAudio.isPlaying) {
                 rocketAudio.PlayOneShot(rocketBoostSound, 1); 
             }
+            if(!jetParticle.isPlaying) {
+                jetParticle.Play();    
+            }
             rocketBody.AddRelativeForce(Vector3.up * boostVelocity * Time.deltaTime);
-
         } else {
             rocketAudio.Stop();
+            jetParticle.Stop();
         }
     }
     void processRotation() {
