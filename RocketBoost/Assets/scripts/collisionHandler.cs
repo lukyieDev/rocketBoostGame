@@ -79,8 +79,10 @@ public class collisionHandler : MonoBehaviour{
     void loadDebugKeys() {
         if(Input.GetKeyUp(KeyCode.L)) {
             loadNextLevel();
-        }else if(Input.GetKeyUp(KeyCode.C)) {
+        } else if(Input.GetKeyUp(KeyCode.C)) {
             collisionStatus = !collisionStatus;
+        } else if(Input.GetKeyUp(KeyCode.R)) {
+            reloadLevel();
         }
     }
 }

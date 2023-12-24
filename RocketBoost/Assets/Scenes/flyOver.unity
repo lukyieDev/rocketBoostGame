@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: fedcb1221bffff74f859ff336a18df33, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.009714279, g: 0.011334772, b: 0.0141566405, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -123,6 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!198 &277661803 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 2488293217461255133, guid: 507d349481d885e428cc0e5e4583af34, type: 3}
+  m_PrefabInstance: {fileID: 3212514930903410658}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &344123205 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5686136017406772820, guid: 0b226785c8cb5f4439a7053c54de7019, type: 3}
@@ -255,6 +260,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!198 &941628738 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 8554104369453385132, guid: 507d349481d885e428cc0e5e4583af34, type: 3}
+  m_PrefabInstance: {fileID: 3212514930903410658}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -291,7 +301,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -400,6 +410,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6097657288475758084, guid: 507d349481d885e428cc0e5e4583af34, type: 3}
+      propertyPath: winParticles
+      value: 
+      objectReference: {fileID: 941628738}
+    - target: {fileID: 6097657288475758084, guid: 507d349481d885e428cc0e5e4583af34, type: 3}
+      propertyPath: crashParticles
+      value: 
+      objectReference: {fileID: 277661803}
     - target: {fileID: 8289415061375268286, guid: 507d349481d885e428cc0e5e4583af34, type: 3}
       propertyPath: m_Name
       value: player
