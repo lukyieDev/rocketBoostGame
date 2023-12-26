@@ -9,7 +9,7 @@ public class movement : MonoBehaviour {
     AudioSource rocketAudio;
     [SerializeField] AudioClip rocketBoostSound;
     [SerializeField] float boostVelocity = 1000f;
-    [SerializeField] float rotationVelocity = 0.5f;
+    [SerializeField] float rotationVelocity = 250f;
     [SerializeField] public ParticleSystem jetParticle;
 
     // Start is called before the first frame update

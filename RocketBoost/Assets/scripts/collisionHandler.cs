@@ -9,6 +9,7 @@ public class collisionHandler : MonoBehaviour{
     AudioSource rocketAudio;
     bool crashedOrFinished = false;
     bool collisionStatus = false;
+    Light rocketLantern;
     [SerializeField] AudioClip crashSound;
     [SerializeField] AudioClip winSound;
     [SerializeField] ParticleSystem crashParticles;
@@ -17,6 +18,7 @@ public class collisionHandler : MonoBehaviour{
     void Start(){
         movement = GetComponent<movement>();
         rocketAudio = GetComponent<AudioSource>();
+        rocketLantern = transform.Find("rocketFarolLight").GetComponent<Light>();
     }
     void Update(){
         loadDebugKeys();
@@ -83,6 +85,8 @@ public class collisionHandler : MonoBehaviour{
             collisionStatus = !collisionStatus;
         } else if(Input.GetKeyUp(KeyCode.R)) {
             reloadLevel();
+        } else if( Input.GetKeyUp(KeyCode.F)) {
+            rocketLantern.enabled = !rocketLantern.enabled;
         }
     }
 }

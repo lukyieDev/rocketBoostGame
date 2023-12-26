@@ -831,7 +831,7 @@ GameObject:
   - component: {fileID: 8821614975561848877}
   - component: {fileID: 5824846940440455385}
   m_Layer: 0
-  m_Name: Spot Light
+  m_Name: rocketFarolLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1057,7 +1057,7 @@ Transform:
   m_GameObject: {fileID: 5748698834676364835}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.155, z: 0}
+  m_LocalPosition: {x: 0, y: -0.117, z: -1.34}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1075,8 +1075,8 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0.1
-  m_Range: 10
+  m_Intensity: 9.36
+  m_Range: 2.2382545
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -1582,8 +1582,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   crashSound: {fileID: 8300000, guid: 5bd9a16c8eef46c41a953888bd18a220, type: 3}
   winSound: {fileID: 8300000, guid: bd5aff0ba5f640741a610cadaeb7f4ca, type: 3}
-  crashParticles: {fileID: 0}
-  winParticles: {fileID: 0}
+  crashParticles: {fileID: 2488293217461255133}
+  winParticles: {fileID: 8554104369453385132}
 --- !u!82 &5895433034287439216
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2082,6 +2082,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4436899185823514, guid: ab79a37535b979f48b6de56e3a0a5cb0, type: 3}
   m_PrefabInstance: {fileID: 2326139263664043293}
   m_PrefabAsset: {fileID: 0}
+--- !u!198 &2488293217461255133 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 198204746014789312, guid: ab79a37535b979f48b6de56e3a0a5cb0, type: 3}
+  m_PrefabInstance: {fileID: 2326139263664043293}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8392428754817701554
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2146,5 +2151,10 @@ PrefabInstance:
 --- !u!4 &8392867938894518906 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4100699973242056, guid: 62198a3a5dbb64a4f9e1618929224faa, type: 3}
+  m_PrefabInstance: {fileID: 8392428754817701554}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &8554104369453385132 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 198631066050499358, guid: 62198a3a5dbb64a4f9e1618929224faa, type: 3}
   m_PrefabInstance: {fileID: 8392428754817701554}
   m_PrefabAsset: {fileID: 0}
