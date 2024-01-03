@@ -79,13 +79,14 @@ public class collisionHandler : MonoBehaviour{
     }
 
     void loadDebugKeys() {
-        if(Input.GetKeyUp(KeyCode.L)) {
-            loadNextLevel();
-        } else if(Input.GetKeyUp(KeyCode.C)) {
-            collisionStatus = !collisionStatus;
-        } else if(Input.GetKeyUp(KeyCode.R)) {
-            reloadLevel();
-        } else if( Input.GetKeyUp(KeyCode.F)) {
+        //if(Input.GetKeyUp(KeyCode.L)) {
+            //loadNextLevel();
+        //} else if(Input.GetKeyUp(KeyCode.C)) {
+            //collisionStatus = !collisionStatus;
+        //} else if(Input.GetKeyUp(KeyCode.R)) {
+            //reloadLevel();
+        //}
+        if( Input.GetKeyUp(KeyCode.F)) {
             rocketLantern.enabled = !rocketLantern.enabled;
         }
     }
