@@ -4,8 +4,9 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class collisionHandler : MonoBehaviour{
-
     movement movement;
+    Camera mCamera;
+    timer gameTimer;
     AudioSource rocketAudio;
     bool crashedOrFinished = false;
     bool collisionStatus = false;
@@ -19,6 +20,8 @@ public class collisionHandler : MonoBehaviour{
         movement = GetComponent<movement>();
         rocketAudio = GetComponent<AudioSource>();
         rocketLantern = transform.Find("rocketFarolLight").GetComponent<Light>();
+        mCamera = Camera.main;
+        gameTimer = mCamera.GetComponent<timer>();
     }
     void Update(){
         loadDebugKeys();
@@ -73,7 +76,8 @@ public class collisionHandler : MonoBehaviour{
         if(nextSceneIndex < allScenesQuantity) {
             SceneManager.LoadScene(nextSceneIndex);
         } else {
-            SceneManager.LoadScene(0);
+            gameTimer.captureFinalTime();
+            return;
         }
         
     }
@@ -81,11 +85,14 @@ public class collisionHandler : MonoBehaviour{
     void loadDebugKeys() {
         //if(Input.GetKeyUp(KeyCode.L)) {
             //loadNextLevel();
-        //} else if(Input.GetKeyUp(KeyCode.C)) {
-            //collisionStatus = !collisionStatus;
-        //} else if(Input.GetKeyUp(KeyCode.R)) {
-            //reloadLevel();
         //}
+        //else if(Input.GetKeyUp(KeyCode.C)) {
+            //collisionStatus = !collisionStatus;
+        //}
+        if(Input.GetKeyUp(KeyCode.R)) {
+            SceneManager.LoadScene(0);
+            timer.time = 0f;
+        }
         if( Input.GetKeyUp(KeyCode.F)) {
             rocketLantern.enabled = !rocketLantern.enabled;
         }
