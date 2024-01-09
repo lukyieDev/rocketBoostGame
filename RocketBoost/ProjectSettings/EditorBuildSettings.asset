@@ -6,18 +6,21 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/flyIn.unity
+    path: Assets/Scenes/(0)flyIn.unity
     guid: 86d9fd5473ce68841a2d5037f489f67a
   - enabled: 1
-    path: Assets/Scenes/flyOver.unity
+    path: Assets/Scenes/(1)flyOver.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
-    path: Assets/Scenes/flyLittleSpaces.unity
+    path: Assets/Scenes/(2)flyLittleSpaces.unity
     guid: 8312d5d49fef49e429339c46e44f2e16
   - enabled: 1
-    path: Assets/Scenes/verticalChallenge.unity
+    path: Assets/Scenes/(3)verticalChallenge.unity
     guid: d74633438b8d8a84b8d5680c45cfc2b3
   - enabled: 1
-    path: Assets/Scenes/compactChallenge.unity
+    path: Assets/Scenes/(4)verticalFly.unity
+    guid: 5bc79cafcf9fd0b4e98d2c2c21dcf185
+  - enabled: 1
+    path: Assets/Scenes/(5)compactChallenge.unity
     guid: 893eac64cb111bd43a66a2405dc3ed88
   m_configObjects: {}
